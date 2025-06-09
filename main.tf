@@ -18,3 +18,7 @@ provider "vultr" {
 provider "aws" {
   region = local.AWS_REGION
 }
+
+module "container_registry" {
+  source = "./modules/container_registry"
+}
