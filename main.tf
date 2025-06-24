@@ -22,3 +22,7 @@ provider "aws" {
 module "container_registry" {
   source = "./modules/container_registry"
 }
+
+module "vpc_network" {
+  source = "./modules/vpc_network"
+}
