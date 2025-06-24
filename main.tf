@@ -26,3 +26,7 @@ module "container_registry" {
 module "vpc_network" {
   source = "./modules/vpc_network"
 }
+
+module "firewall_groups" {
+  source = "./modules/firewall_groups"
+}
