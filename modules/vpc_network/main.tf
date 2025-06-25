@@ -7,6 +7,8 @@ terraform {
   }
 }
 
+# TODO alterar modulo para aceitar variáveis de entrada definido no modulo principal
+
 resource "vultr_vpc" "kubernetes_lab_vpc" {
     description = "Kubernetes Lab VPC"
     region = local.region
