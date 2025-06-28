@@ -10,7 +10,7 @@ terraform {
 
 resource "vultr_container_registry" "kubernetes_lab_container_registry" {
   name = "kuberneteslabcontainerregistry"
-  region = local.region_newjersey
-  plan = local.plan_startup
+  region = var.region
+  plan = var.plan
   public = false
 }
