@@ -10,7 +10,7 @@ Altere os valores:
 
 # Linux
 
-## Torne o script executável:
+## Torne o script executável e execute:
 
 `chmod +x gerar_chave_ssh_linux.sh`
 
@@ -22,9 +22,13 @@ Para rodar um script Bash no Windows, você precisa de um ambiente que o suporte
 - WSL (Windows Subsystem for Linux): Permite rodar um ambiente Linux completo (como Ubuntu) dentro do Windows.
 - Cygwin: Outro ambiente que simula um sistema Unix-like no Windows.
 
+## Execute:
+
+`gerar_chave_ssh_win.sh`
+
 -----
 
-## Gerador de Chaves SSH Personalizável para Windows (via Git Bash / WSL)
+## Dica: Gerador de Chaves SSH Personalizável para Windows (via Git Bash / WSL)
 
 Este script é praticamente idêntico à versão Linux, pois ele será executado em um ambiente Bash (Git Bash ou WSL) que simula o comportamento do Linux no Windows.
 
