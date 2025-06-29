@@ -10,6 +10,8 @@ Altere os valores:
 
 # Linux
 
+As chaves geradas ficam armazenadas em `cat ~/.ssh/`
+
 ## Torne o script executável e execute:
 
 `chmod +x gerar_chave_ssh_linux.sh`
