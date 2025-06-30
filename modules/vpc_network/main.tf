@@ -8,7 +8,7 @@ terraform {
 }
 
 resource "vultr_vpc" "kubernetes_lab_vpc" {
-    description = "Kubernetes Lab VPC"
+    description = var.description
     region = var.region
     v4_subnet  = var.v4_subnet
     v4_subnet_mask = var.v4_subnet_mask

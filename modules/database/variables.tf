@@ -1,0 +1,65 @@
+variable "database_engine" {
+  description = "The database engine to use (e.g., mysql, postgresql, valkey, kafka)"
+  type        = string
+  
+}
+
+variable "database_engine_version" {
+  description = "The version of the database engine to use"
+  type        = string
+  
+}
+
+variable "region" {
+  description = "The region where the database will be deployed"
+  type        = string
+  
+}
+
+variable "plan" {
+  description = "The plan for the database instance"
+  type        = string  
+  
+}
+
+variable "label" {
+  description = "A label for the database instance"
+  type        = string
+  default     = "Lab database instance vultr"
+  
+}
+
+variable "vpc_id" {
+  description = "The ID of the VPC network to associate with the database"
+  type        = string
+    
+}
+
+variable "mysql_require_primary_key" {
+  description = "Whether to require a primary key for MySQL databases"
+  type        = bool
+  
+}
+
+variable "mysql_long_query_time" {
+  description = "The long query time setting for MySQL databases"
+  type        = number
+  
+}
+
+variable "valkey_eviction_policy" {
+  description = "The eviction policy for Valkey databases"
+  type        = string
+  
+}
+
+variable "kafka_plan_replicas" {
+  description = "The number of replicas for Kafka databases"
+  type        = string  
+}
+
+variable "kafka_plan_brokers" {
+  description = "The number of brokers for Kafka databases"
+  type        = string
+  
+}
