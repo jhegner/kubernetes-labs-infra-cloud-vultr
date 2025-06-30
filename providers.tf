@@ -16,5 +16,5 @@ provider "vultr" {
 }
 
 provider "aws" {
-  region = local.AWS_REGION
+  region = local.aws_region
 }
