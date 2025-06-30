@@ -38,28 +38,30 @@ variable "vpc_id" {
 variable "mysql_require_primary_key" {
   description = "Whether to require a primary key for MySQL databases"
   type        = bool
+  default     = null
   
 }
 
 variable "mysql_long_query_time" {
   description = "The long query time setting for MySQL databases"
   type        = number
-  
+  default     = null
 }
 
 variable "valkey_eviction_policy" {
   description = "The eviction policy for Valkey databases"
   type        = string
-  
+  default     = null
 }
 
 variable "kafka_plan_replicas" {
   description = "The number of replicas for Kafka databases"
-  type        = string  
+  type        = string
+  default     = null
 }
 
 variable "kafka_plan_brokers" {
   description = "The number of brokers for Kafka databases"
   type        = string
-  
+  default     = null
 }

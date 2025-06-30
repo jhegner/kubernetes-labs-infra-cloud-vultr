@@ -37,7 +37,7 @@ module "database" {
   region                  = local.vult_region
   plan                    = each.value.plan
   label                   = each.value.label
-  vpc_id                  = data.vultr_vpc.vpc_id
+  vpc_id                  = module.vpc_network.vpc_id
 
   # MySQL specific settings
   mysql_long_query_time     = each.value.mysql_long_query_time
@@ -49,5 +49,7 @@ module "database" {
   # kafka specific settings
   kafka_plan_brokers  = each.value.plan_brokers
   kafka_plan_replicas = each.value.plan_replicas
+
+  depends_on = [ module.vpc_network ]
 
 }
