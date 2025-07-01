@@ -35,18 +35,7 @@ locals {
 # Define the database configurations (MySQL, Valkey, Kafka)
 locals {
   databases = {
-    mysql = {
-      database_engine           = "mysql"
-      database_engine_version   = "8"
-      region                    = local.vult_region
-      plan                      = "vultr-dbaas-startup-cc-1-55-2"
-      label                     = "Kubernetes Labs MySQL Database"
-      mysql_long_query_time     = 3
-      mysql_require_primary_key = true
-      eviction_policy           = null
-      plan_replicas             = null
-      plan_brokers              = null
-    },
+
     valkey = {
       database_engine           = "valkey"
       database_engine_version   = "7"
@@ -54,22 +43,6 @@ locals {
       plan                      = "vultr-dbaas-startup-rp-intel-1-12-2"
       label                     = "Kubernetes Labs Valkey Database"
       eviction_policy           = "volatile-ttl" # Removes keys with a TTL set
-      plan_replicas             = null
-      plan_brokers              = null
-      mysql_long_query_time     = null
-      mysql_require_primary_key = null
-    },
-    kafka = {
-      database_engine           = "kafka"
-      database_engine_version   = "3.8"
-      region                    = local.vult_region
-      plan                      = "vultr-dbaas-startup-3x-occ-so-2-30-2"
-      label                     = "Kubernetes Labs Kafka Database"
-      plan_replicas             = "0"
-      plan_brokers              = "3"
-      mysql_long_query_time     = null
-      mysql_require_primary_key = null
-      eviction_policy           = null
     }
   }
 }

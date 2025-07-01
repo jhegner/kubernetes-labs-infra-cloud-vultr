@@ -39,16 +39,8 @@ module "database" {
   label                   = each.value.label
   vpc_id                  = module.vpc_network.vpc_id
 
-  # MySQL specific settings
-  mysql_long_query_time     = each.value.mysql_long_query_time
-  mysql_require_primary_key = each.value.mysql_require_primary_key
-
   # Valkey specific settings
   valkey_eviction_policy = each.value.eviction_policy
-
-  # kafka specific settings
-  kafka_plan_brokers  = each.value.plan_brokers
-  kafka_plan_replicas = each.value.plan_replicas
 
   depends_on = [ module.vpc_network ]
 
