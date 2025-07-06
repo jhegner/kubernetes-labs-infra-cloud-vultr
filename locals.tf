@@ -14,7 +14,7 @@ locals {
 locals {
   vpc_network_v4_subnet      = "192.168.0.0"
   vpc_network_v4_subnet_mask = 23
-  vpc_network_description    = "Kubernetes Labs VPC Network"
+  vpc_network_description    = "kubernetes labs vpc network"
 }
 
 # Define the firewall rules for the VPC network
@@ -26,7 +26,7 @@ locals {
       subnet      = local.vpc_network_v4_subnet
       subnet_size = local.vpc_network_v4_subnet_mask
       port        = "22"
-      notes       = "SSH access for management"
+      notes       = "ssh access for management"
     }
   ]
   firewall_rules_map = { for idx, rule in local.firewall_rules : "${rule.protocol}-${rule.ip_type}-${rule.subnet}-${rule.subnet_size}-${rule.port}-${idx}" => rule }
@@ -41,7 +41,7 @@ locals {
       database_engine_version   = "7"
       region                    = local.vultr_region
       plan                      = "vultr-dbaas-startup-rp-intel-1-12-2"
-      label                     = "Kubernetes Labs Valkey Database"
+      label                     = "kubernetes labs valkey database"
       eviction_policy           = "volatile-ttl" # Removes keys with a TTL set
     }
   }

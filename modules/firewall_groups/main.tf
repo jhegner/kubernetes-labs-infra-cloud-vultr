@@ -8,7 +8,7 @@ terraform {
 }
 
 resource "vultr_firewall_group" "kubernetes_lab_firewall_group" {
-  description = "Kubernetes Lab Firewall Group"
+  description = "kubernetes lab firewall group"
 }
 
 resource "vultr_firewall_rule" "kubernetes_lab_firewall_group_rule" {
