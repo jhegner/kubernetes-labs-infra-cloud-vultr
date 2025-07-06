@@ -6,7 +6,7 @@ module "container_registry" {
 
 module "vpc_network" {
   source         = "./modules/vpc_network"
-  region         = local.vult_region
+  region         = local.vultr_region
   v4_subnet      = local.vpc_network_v4_subnet
   v4_subnet_mask = local.vpc_network_v4_subnet_mask
   description    = local.vpc_network_description
@@ -34,7 +34,7 @@ module "database" {
 
   database_engine         = each.value.database_engine
   database_engine_version = each.value.database_engine_version
-  region                  = local.vult_region
+  region                  = local.vultr_region
   plan                    = each.value.plan
   label                   = each.value.label
   vpc_id                  = module.vpc_network.vpc_id

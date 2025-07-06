@@ -1,6 +1,6 @@
 # Global variables for the Vult and AWS regions
 locals {
-  vult_region = "atl"
+  vultr_region = "atl"
   aws_region  = "us-east-1"
 }
 
@@ -39,7 +39,7 @@ locals {
     valkey = {
       database_engine           = "valkey"
       database_engine_version   = "7"
-      region                    = local.vult_region
+      region                    = local.vultr_region
       plan                      = "vultr-dbaas-startup-rp-intel-1-12-2"
       label                     = "Kubernetes Labs Valkey Database"
       eviction_policy           = "volatile-ttl" # Removes keys with a TTL set
