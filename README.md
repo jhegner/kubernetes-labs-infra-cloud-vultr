@@ -11,6 +11,7 @@ Os recursos são organizados em módulos na pasta `modules/`. Cada módulo repre
 - **instance**: Provisionamento de instâncias (VMs) para execução de workloads.
 - **loadbalancer**: Balanceamento de carga entre instâncias para alta disponibilidade.
 - **dns**: Gerenciamento de registros DNS para exposição de serviços.
+- **databases**: Servicos gerenciados de banco de dados
 
 ## Relação entre os Recursos
 
@@ -46,6 +47,7 @@ modules/
 ├── dns/
 ├── firewall/
 ├── instance/
+├── database/
 ├── loadbalancer/
 └── network/
 ```
