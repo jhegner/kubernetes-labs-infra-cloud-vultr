@@ -1,7 +1,7 @@
 # Global variables for the Vult and AWS regions
 locals {
   vultr_region = "atl"
-  aws_region  = "us-east-1"
+  aws_region   = "us-east-1"
 }
 
 # Define the region for the container registry
@@ -37,12 +37,13 @@ locals {
   databases = {
 
     valkey = {
-      database_engine           = "valkey"
-      database_engine_version   = "7"
-      region                    = local.vultr_region
-      plan                      = "vultr-dbaas-startup-rp-intel-1-12-2"
-      label                     = "kubernetes labs valkey database"
-      eviction_policy           = "volatile-ttl" # Removes keys with a TTL set
+      database_engine         = "valkey"
+      database_engine_version = "7"
+      region                  = local.vultr_region
+      plan                    = "vultr-dbaas-startup-rp-intel-1-12-2"
+      label                   = "kubernetes labs valkey database"
+      eviction_policy         = "volatile-ttl" # Removes keys with a TTL set
     }
   }
 }
+
