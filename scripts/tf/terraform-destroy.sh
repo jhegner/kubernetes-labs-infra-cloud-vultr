@@ -4,4 +4,4 @@ cd ../../
 
 echo "--- Executando terraform destroy ---"
 
-terraform destroy
+terraform destroy -auto-approve
