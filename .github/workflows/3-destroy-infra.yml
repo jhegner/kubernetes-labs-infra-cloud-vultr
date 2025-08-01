@@ -1,4 +1,4 @@
-name: Reuso CI Destroy
+name: CI/CD Destroy Infra 💥
 
 on:
   workflow_dispatch:
