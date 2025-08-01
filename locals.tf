@@ -47,3 +47,10 @@ locals {
   }
 }
 
+# Define bucket state file config
+locals {
+  backend = {
+    bucket_name = "kubernetes-labs-tf-backend-aws-s3bucket"
+    key = "lab/state/terraform-vultr-infra"
+  }
+}
