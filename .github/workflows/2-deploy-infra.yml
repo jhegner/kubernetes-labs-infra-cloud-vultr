@@ -1,4 +1,4 @@
-name: Reuso CI Deploy
+name: CI/CD Deploy Infra 🚀
 
 on:
   workflow_dispatch:
