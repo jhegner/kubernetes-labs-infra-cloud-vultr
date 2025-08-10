@@ -6,7 +6,7 @@ on:
 jobs:
 
   check-cluster-running:
-    name: 🕵🏾 Check if cluster is running or not to proceed
+    name: 🕵🏾 Check if cluster is running
     runs-on: ubuntu-latest
     steps:            
     - name: Checking if a Kubernetes cluster is running on Vultr
