@@ -28,6 +28,7 @@ jobs:
       run: echo "❌ Cluster already exists. Exiting workflow, first stop here."  
 
   ci-feature:
+    needs: [check-cluster-running]
     uses: jhegner/kubernetes-labs-ci-workflows/.github/workflows/3-reusable-destroy-infra.yml@main
     with:
       bucket-tf-backend-name: "kubernetes-labs-tf-backend-aws-s3bucket"
