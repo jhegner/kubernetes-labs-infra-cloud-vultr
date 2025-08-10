@@ -6,11 +6,12 @@ on:
 jobs:
 
   check-cluster-running:
+    name: 🕵🏾 Check if cluster is running or not to proceed
     runs-on: ubuntu-latest
     steps:            
-    - name: Check if cluster is running or not. If yes, the workflow will stop here.
+    - name: Checking if a Kubernetes cluster is running on Vultr
       run: |
-        echo "Checking if a Kubernetes cluster is running on Vultr..."
+        echo "Checking..."
 
         clusters_json=$(curl -s -H "Authorization: Bearer ${VULTR_API_KEY}" \
         "https://api.vultr.com/v2/kubernetes/clusters")
