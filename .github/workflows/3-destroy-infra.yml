@@ -4,35 +4,33 @@ on:
   workflow_dispatch:
 
 jobs:
-
   check-cluster-running:
     name: 🕵🏾 Check if cluster is running
     runs-on: ubuntu-latest
-    steps:            
-    - name: Checking if a Kubernetes cluster is running on Vultr
-      run: |
-        echo "Checking..."
+    steps:
+      - name: Checking if a Kubernetes cluster is running on Vultr
+        run: |
+          echo "Checking..."
 
-        clusters_json=$(curl -s -H "Authorization: Bearer ${VULTR_API_KEY}" \
-        "https://api.vultr.com/v2/kubernetes/clusters")
-        if [ "$(echo "$clusters_json" | jq '.vke_clusters | length')" -nq 0 ]; then
-          exit 1
-        fi          
-        
-    - name: No cluster found running you can proceed the workflow
-      if: success()
-      run: echo "✅ No cluster found. Proceeding with deployment."
+          clusters_json=$(curl -s -H "Authorization: Bearer ${VULTR_API_KEY}" \
+            "https://api.vultr.com/v2/kubernetes/clusters")
 
-    - name: Cluster found running you cannot proceed the workflow
-      if: failure()
-      run: echo "❌ Cluster already exists. Exiting workflow, first stop here."  
+          if [ "$(echo "$clusters_json" | jq '.vke_clusters | length')" -nq 0 ]; then
+            echo "✅ No cluster found. Proceeding with deployment."
+            exit 1
+          fi
+
+          if [ "$(echo "$clusters_json" | jq '.vke_clusters | length')" == 0 ]; then
+            echo "❌ Cluster already exists. Exiting workflow, first stop here."
+            exit 0
+          fi
 
   ci-feature:
     needs: [check-cluster-running]
     uses: jhegner/kubernetes-labs-ci-workflows/.github/workflows/3-reusable-destroy-infra.yml@main
     with:
       bucket-tf-backend-name: "kubernetes-labs-tf-backend-aws-s3bucket"
-      key-tf-backend-name: "lab/state/terraform-vultr-infra"
+      key-tf-backend-name: "lab/state/tf-infra-cloud-vultr"
     secrets:
       VULTR_API_KEY: ${{ secrets.VULTR_API_KEY }}
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
